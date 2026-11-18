@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#24324A">
+<title>ENT Residency Program</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#F2F4F6;--surface:#FFFFFF;--ink:#1C2536;--muted:#5C6676;--line:#D8DDE4;--brand:#24324A;--on-brand:#fff;--act:#3B5BDB;--act-soft:#E6EBFB;
+--l1:#E9EEF3;--l1t:#5C6676;--l2:#CFE5DA;--l2t:#245A44;--l3:#6DB493;--l3t:#0F2E22;--l4:#1F6B4E;--l4t:#FFFFFF;
+--ent:#DCE6F7;--sub:#D6EEE3;--ext:#F6E5CF;--res:#EADFF5;--chief:#F3D6D6;--warn:#B45309;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#10151D;--surface:#171E29;--ink:#E3E8EF;--muted:#98A2B1;--line:#2A3444;--brand:#9DB3E0;--on-brand:#0E1626;--act:#8EA6F2;--act-soft:#1E2A47;
+--l1:#212A37;--l1t:#98A2B1;--l2:#1E3B30;--l2t:#A9D9C1;--l3:#2F7A5A;--l3t:#E8FFF4;--l4:#62C79A;--l4t:#0B2219;
+--ent:#22304A;--sub:#1E3A30;--ext:#3D3020;--res:#33284A;--chief:#43262A;--warn:#F0A44B;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--act);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+header.app{background:var(--brand);color:var(--on-brand);padding:18px 16px 0}
+header.app .in{max-width:980px;margin:0 auto}
+header.app h1{margin:0;font-size:1.45rem;font-weight:700;letter-spacing:-.01em}
+header.app p{margin:2px 0 12px;opacity:.85;font-size:.9rem}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;max-width:980px;margin:0 auto}
+nav.tabs button{flex:none;border:0;background:none;color:inherit;opacity:.75;padding:10px 12px 12px;font-weight:600;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected=true]{opacity:1;border-bottom-color:currentColor}
+main{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+h2{font-size:1.15rem;margin:26px 0 10px}h2:first-child{margin-top:0}
+h3{font-size:1rem;margin:18px 0 8px}
+.lead{color:var(--muted);margin:-4px 0 14px;max-width:70ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:8px 13px;font-weight:600;font-size:.9rem}
+.btn.p{background:var(--act);border-color:var(--act);color:#fff}
+@media (prefers-color-scheme:dark){.btn.p{color:#0E1626}}
+.btn.sm{padding:5px 10px;font-size:.84rem}
+.btn.d{color:#B42318}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.chips button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:.86rem;color:var(--muted)}
+.chips button[aria-pressed=true]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+/* this week */
+.session{display:grid;grid-template-columns:120px 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.session .date{background:var(--brand);color:var(--on-brand);padding:14px;display:flex;flex-direction:column;justify-content:center}
+.session .date b{font-size:2rem;line-height:1}.session .date span{font-size:.85rem;opacity:.85}
+.session ol{list-style:none;margin:0;padding:6px 14px}
+.session li{padding:10px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+.session li:first-child{border-top:0}
+.session .tm{color:var(--muted);font-size:.85rem;padding-top:1px;min-width:46px}
+.session .what{font-weight:600}.session .who{grid-column:2;color:var(--muted);font-size:.88rem}
+.session li.quiz .what{color:var(--warn)}
+@media (max-width:520px){.session{grid-template-columns:1fr}.session .date{flex-direction:row;gap:10px;align-items:baseline}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media (max-width:700px){.grid2{grid-template-columns:1fr}}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:.92rem}.kv:first-of-type{border-top:0}
+.kv span:first-child{font-weight:600;white-space:nowrap}.kv span:last-child{color:var(--muted);text-align:right}
+/* lectures */
+.block{margin-bottom:18px}
+.block .bh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.block .bh h3{margin:0}.block .bh small{color:var(--muted)}
+.lec{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.lec:first-child{border-top:0}
+.lec .d{font-weight:600;font-size:.88rem}.lec .d small{display:block;color:var(--muted);font-weight:400}
+.lec .t{font-weight:600}.lec .s{font-size:.86rem;color:var(--muted);margin-top:2px}
+.lec select{font-size:.82rem;padding:2px 4px;border:1px solid var(--line);border-radius:6px;background:var(--surface);max-width:180px}
+.lec.special .t{color:var(--warn)}
+.lec.past{opacity:.55}
+.lec .skip{float:right}
+/* matrix */
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.84rem;margin:0 0 12px}
+.legend i{display:inline-flex;width:22px;height:22px;border-radius:5px;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:.78rem;margin-right:5px;vertical-align:middle}
+table.mx{width:100%;border-collapse:separate;border-spacing:0 3px;font-size:.9rem}
+table.mx th{font-size:.8rem;color:var(--muted);font-weight:600;text-align:center;padding:4px}
+table.mx th:first-child{text-align:left}
+table.mx td{padding:0}
+table.mx td.p{padding:6px 8px 6px 0;font-weight:500}
+table.mx td.c{width:46px}
+table.mx td.c i{display:flex;height:30px;margin:0 2px;border-radius:5px;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:.8rem}
+table.mx td.tg{width:58px;text-align:right;color:var(--muted);font-size:.85rem;padding-right:4px}
+table.mx tr.grp td{padding:14px 0 2px;font-weight:700;font-size:.92rem}
+table.mx .dim{opacity:.28}
+.L1{background:var(--l1);color:var(--l1t)}.L2{background:var(--l2);color:var(--l2t)}.L3{background:var(--l3);color:var(--l3t)}.L4{background:var(--l4);color:var(--l4t)}
+/* rotations */
+.rgrid{overflow-x:auto}
+table.rt{border-collapse:separate;border-spacing:2px;font-size:.78rem;min-width:760px;width:100%;table-layout:fixed}
+table.rt th{color:var(--muted);font-weight:600;padding:4px;text-align:center}
+table.rt th.n{text-align:left;width:130px;font-size:.86rem;color:var(--ink)}
+table.rt td{padding:6px 4px;border-radius:5px;text-align:center;line-height:1.2;vertical-align:middle}
+.c-ent{background:var(--ent)}.c-sub{background:var(--sub)}.c-ext{background:var(--ext)}.c-res{background:var(--res)}.c-chief{background:var(--chief)}
+.plan .yr{margin-bottom:14px}
+.bar{display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.bar div{padding:8px 6px;font-size:.8rem;line-height:1.25;border-right:2px solid var(--surface)}
+.bar div:last-child{border-right:0}
+.bar small{display:block;opacity:.7}
+/* lists */
+.list .it{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.list .it:first-child{border-top:0}
+.list .it .m{flex:1;min-width:0}.list .it .m b{display:block}.list .it .m small{color:var(--muted)}
+.lvl{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:26px;border-radius:6px;background:var(--brand);color:var(--on-brand);font-weight:700;font-size:.82rem}
+label.f{display:block;margin-bottom:10px}label.f span{display:block;font-size:.82rem;color:var(--muted);font-weight:600;margin-bottom:3px}
+label.f input,label.f select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px;background:var(--surface)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 15px;border-radius:9px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:50;font-size:.9rem}
+.toast.show{opacity:1}
+.note{font-size:.85rem;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.quiz:first-child{border-top:0}
+.quiz .t{font-weight:600}.quiz .s{font-size:.86rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--act-soft);color:var(--act);margin-left:6px;vertical-align:1px}
+.res-card{border-top:1px solid var(--line);padding:12px 0}.res-card:first-child{border-top:0}
+@media print{header.app nav,.noprint,.btn{display:none!important}header.app{background:none;color:#000}body{background:#fff}.panel{border-color:#bbb}main{padding:0}}
+</style>
+</head>
+<body>
+<header class="app"><div class="in"><h1 id="pname">ENT Residency Program</h1><p id="psub"></p></div>
+<nav class="tabs" role="tablist">
+ <button data-t="week">This week</button><button data-t="lectures">Lectures</button><button data-t="quizzes">Quizzes</button><button data-t="ops">Operative levels</button><button data-t="rot">Rotations</button><button data-t="frame">Training framework</button><button data-t="res">Residents & settings</button>
+</nav></header>
+<main id="view"></main>
+<div class="toast" id="toast"></div>
+<script>
+const CURRICULUM={
+A:[
+ {name:"Ear basics and audiology",lead:[1,3],ref:"Scott-Brown Vol 2; Cummings (Otology, Audiology); KJ Lee",topics:["Temporal bone anatomy and embryology of the ear","Physiology of hearing and balance","Pure tone and speech audiometry, masking","Tympanometry, acoustic reflexes, OAE and ABR","Vestibular assessment: VNG, calorics, vHIT, VEMP"]},
+ {name:"Otology I: external and middle ear",lead:[1,3],ref:"Scott-Brown Vol 2; Cummings (Otology)",topics:["External ear disease: otitis externa, necrotising otitis externa, exostoses","Acute otitis media and its management","Otitis media with effusion and ventilation tubes","Chronic otitis media (mucosal) and tympanoplasty","Cholesteatoma and principles of mastoid surgery"]},
+ {name:"Rhinology I",lead:[1,3],ref:"Scott-Brown Vol 1; EPOS 2020; Cummings (Rhinology)",topics:["Nasal and sinus anatomy, endoscopic anatomy","Nasal physiology and olfaction","Allergic and non-allergic rhinitis","Acute and chronic rhinosinusitis (EPOS 2020)","Epistaxis: assessment and stepwise management"]},
+ {name:"Laryngology I",lead:[1,3],ref:"Scott-Brown Vol 3; Cummings (Laryngology)",topics:["Laryngeal anatomy, phonation and swallowing physiology","Voice assessment and benign vocal fold lesions","Laryngeal inflammation, infections and LPR","Vocal fold paralysis","Upper airway obstruction and tracheostomy care"]},
+ {name:"Paediatric ENT I",lead:[1,3],ref:"Scott-Brown Vol 2 (Paediatrics); Cummings (Pediatric Otolaryngology)",topics:["Embryology of head and neck, branchial anomalies","Paediatric airway and stridor: laryngomalacia, subglottic stenosis","Tonsils, adenoids and paediatric OSA","Congenital hearing loss and newborn hearing screening","Foreign bodies: ear, nose, airway and oesophagus"]},
+ {name:"Head and neck I",lead:[1,3],ref:"Scott-Brown Vol 3; Bailey's Head & Neck Surgery",topics:["Neck anatomy, fascial spaces and lymph node levels","Deep neck space infections","Evaluation of the adult neck mass","Thyroid nodule: TI-RADS and Bethesda","Non-neoplastic salivary gland disease"]},
+ {name:"Facial nerve, trauma and facial plastics",lead:[1,3],ref:"Cummings (Facial Plastic, Otology); Bailey's",topics:["Facial nerve anatomy and facial palsy (Bell's, Ramsay Hunt)","Maxillofacial trauma and nasal fractures","Temporal bone fractures","Principles of septorhinoplasty","Facial skin cancer and local flaps"]},
+ {name:"Emergencies and perioperative care",lead:[1,3],ref:"Scott-Brown; KJ Lee",topics:["ENT emergencies: triage and first-line management","Post-tonsillectomy haemorrhage and bleeding disorders","Anaesthesia for ENT: shared airway and laser safety","Antibiotics and antimicrobial stewardship in ENT","Consent, communication and medicolegal practice"]}
+],
+B:[
+ {name:"Otology II: inner ear",lead:[3,5],ref:"Scott-Brown Vol 2; Cummings (Neurotology)",topics:["Sensorineural hearing loss and sudden SNHL","Ménière's disease and endolymphatic hydrops","BPPV, vestibular neuritis and central vertigo","Otosclerosis and stapes surgery","Tinnitus and hyperacusis"]},
+ {name:"Otology III: complications and skull base",lead:[3,5],ref:"Scott-Brown Vol 2; Cummings (Neurotology)",topics:["Complications of otitis media: intratemporal and intracranial","Vestibular schwannoma and CPA lesions","Paragangliomas and the lateral skull base","Hearing aids and implantable devices (BAHA, middle ear implants)","Cochlear implantation: candidacy, surgery, outcomes"]},
+ {name:"Rhinology II and anterior skull base",lead:[3,5],ref:"Scott-Brown Vol 1; EPOS 2020; Cummings (Rhinology)",topics:["CRSwNP, type 2 inflammation and biologics","Fungal rhinosinusitis: invasive and allergic","Orbital and intracranial complications of sinusitis","Sinonasal tumours: inverted papilloma and malignancy","CSF rhinorrhoea and endoscopic skull base repair"]},
+ {name:"Laryngology II",lead:[3,5],ref:"Scott-Brown Vol 3; Cummings; AJCC 8th; NCCN",topics:["Laryngeal cancer: staging (AJCC 8th) and treatment (NCCN)","Dysphagia: assessment and management","Professional voice and laryngeal framework surgery","Subglottic and tracheal stenosis","Recurrent respiratory papillomatosis and laryngeal lasers"]},
+ {name:"Head and neck oncology I",lead:[3,5],ref:"AJCC 8th; NCCN Head & Neck; Bailey's; Scott-Brown Vol 3",topics:["Principles of head and neck cancer: epidemiology, staging, MDT","Oral cavity cancer","Oropharyngeal cancer and HPV (p16)","Nasopharyngeal carcinoma","Hypopharyngeal cancer"]},
+ {name:"Head and neck oncology II",lead:[3,5],ref:"AJCC 8th; NCCN; ATA; Bailey's; Scott-Brown Vol 1 & 3",topics:["Neck dissection: classification and technique","Thyroid cancer: differentiated, medullary, anaplastic","Parathyroid disease and surgery","Salivary gland tumours","Radiotherapy, chemotherapy and reconstruction principles"]},
+ {name:"Paediatric ENT II and sleep",lead:[3,5],ref:"Scott-Brown Vol 2; Cummings (Pediatric, Sleep)",topics:["Cleft lip and palate, velopharyngeal insufficiency","Paediatric neck masses and vascular anomalies","Choanal atresia and congenital nasal masses","Adult OSA: polysomnography, CPAP and surgery","Syndromes in ENT: Down, Treacher Collins, CHARGE"]},
+ {name:"Imaging, evidence and exam skills",lead:[3,5],ref:"Scott-Brown Vol 1; Cummings (Imaging)",topics:["CT and MRI of the temporal bone","CT and MRI of the sinuses and skull base","Imaging of the neck and larynx","Evidence-based medicine and critical appraisal","Exam technique: MCQ, OSCE and viva"]}
+]};
+
+const ROTATIONS={
+1:[["ENT core: wards, clinics, emergency",6,"ent"],["General surgery",2,"ext"],["Anaesthesia and ICU",2,"ext"],["Emergency medicine",1,"ext"],["Audiology and vestibular unit",1,"sub"]],
+2:[["ENT core",8,"ent"],["Head and neck radiology",1,"ext"],["Neurosurgery",1,"ext"],["Plastic and maxillofacial surgery",1,"ext"],["Paediatric ENT",1,"sub"]],
+3:[["Otology",3,"sub"],["Rhinology",3,"sub"],["Laryngology and airway",3,"sub"],["Paediatric ENT",3,"sub"]],
+4:[["Head and neck surgery",3,"sub"],["Otology and neurotology",3,"sub"],["Rhinology and skull base",3,"sub"],["Elective or research",3,"res"]],
+5:[["Chief: head and neck oncology",4,"chief"],["Chief: otology",4,"chief"],["Chief: rhinology and facial plastics",4,"chief"]]
+};
+
+/* levels: 1 observe, 2 assist, 3 perform supervised, 4 independent. target = indicative minimum performed (S or I) by graduation */
+const PROCEDURES=[
+ ["Emergency and general",[
+  ["Microsuction and aural toilet",[3,4,4,4,4],50],
+  ["Removal of foreign body: ear and nose",[3,4,4,4,4],20],
+  ["Nasal cautery and packing",[4,4,4,4,4],30],
+  ["Drainage of peritonsillar abscess",[3,4,4,4,4],15],
+  ["Incision and drainage of neck abscess",[2,3,4,4,4],10],
+  ["Elective tracheostomy",[2,3,3,4,4],20],
+  ["Emergency surgical airway",[1,2,3,3,4],null]]],
+ ["Paediatric and pharynx",[
+  ["Adenoidectomy",[2,3,4,4,4],80],
+  ["Tonsillectomy",[2,3,4,4,4],100],
+  ["Myringotomy and ventilation tubes",[3,4,4,4,4],80],
+  ["Tongue-tie release",[3,4,4,4,4],10],
+  ["Direct laryngoscopy and bronchoscopy",[1,2,3,3,4],20],
+  ["Rigid oesophagoscopy and foreign body removal",[1,2,3,4,4],15]]],
+ ["Otology",[
+  ["Excision of preauricular sinus",[1,2,3,4,4],10],
+  ["Canalplasty and meatoplasty",[1,2,3,3,4],10],
+  ["Myringoplasty",[1,2,3,4,4],25],
+  ["Tympanoplasty",[1,2,2,3,4],20],
+  ["Cortical mastoidectomy",[1,2,3,4,4],15],
+  ["Mastoidectomy for cholesteatoma",[1,1,2,3,3],15],
+  ["Ossiculoplasty",[1,1,2,3,3],5],
+  ["Stapedotomy",[1,1,1,2,3],null],
+  ["Cochlear implantation",[1,1,1,2,2],null]]],
+ ["Rhinology",[
+  ["Inferior turbinate reduction",[3,4,4,4,4],40],
+  ["Reduction of nasal fracture",[3,4,4,4,4],20],
+  ["Septoplasty",[2,3,3,4,4],40],
+  ["Basic FESS: uncinectomy, middle meatal antrostomy",[1,2,3,4,4],30],
+  ["Comprehensive FESS",[1,1,2,3,4],20],
+  ["Sphenopalatine artery ligation",[1,1,2,3,4],5],
+  ["Endoscopic DCR",[1,1,2,3,3],5],
+  ["Septorhinoplasty",[1,1,1,2,3],5],
+  ["Endoscopic CSF leak repair",[1,1,1,2,2],null]]],
+ ["Laryngology",[
+  ["Microlaryngoscopy and biopsy",[2,3,4,4,4],40],
+  ["Microlaryngeal excision of benign lesions",[1,2,3,3,4],20],
+  ["Injection laryngoplasty",[1,1,2,3,3],5],
+  ["Transoral laser surgery",[1,1,2,3,3],5]]],
+ ["Head and neck",[
+  ["Panendoscopy for head and neck cancer",[1,2,3,4,4],20],
+  ["Excision biopsy of neck lymph node",[2,3,4,4,4],15],
+  ["Local skin flaps",[1,2,3,3,4],10],
+  ["Thyroglossal duct cyst (Sistrunk)",[1,2,2,3,4],5],
+  ["Branchial cyst excision",[1,2,2,3,4],5],
+  ["Submandibular gland excision",[1,2,2,3,4],8],
+  ["Hemithyroidectomy",[1,1,2,3,4],15],
+  ["Total thyroidectomy",[1,1,2,3,3],10],
+  ["Superficial parotidectomy",[1,1,2,3,3],8],
+  ["Selective neck dissection",[1,1,1,2,3],5],
+  ["Total laryngectomy",[1,1,1,2,2],null]]]
+];
+
+const FRAMEWORK={
+weekly:[
+ ["Every working day","07:30 ward round and handover led by the senior resident; consultant round on theatre and clinic days."],
+ ["Theatre days","Residents are allocated to lists by competency level. Juniors start and close; seniors perform the key steps under supervision. Every case goes in the logbook the same day."],
+ ["Clinic days","Juniors see new patients and present each case to the senior or consultant before discharge. Seniors run follow-up and pre-operative clinics."],
+ ["Academic day","Protected time. No elective lists for residents during the session. Attendance is recorded."],
+ ["On call","Rota of 1 in 4 to 1 in 5. Junior first on call, senior second, consultant third. Post-call rest is respected."]
+],
+assess:[
+ ["Mini-CEX","4 per year","Observed clinical encounter in clinic or ward."],
+ ["DOPS","6 per year","Observed procedure at the level expected for the year."],
+ ["Case-based discussion","4 per year","Structured discussion of a case the resident managed."],
+ ["Multi-source feedback","1 per year","Nurses, colleagues and consultants."],
+ ["Logbook review","Every 3 months","Numbers and roles checked against the year's targets."],
+ ["Supervisor meetings","Start, middle, end of year","Agree objectives, review progress, sign off."],
+ ["Annual review","End of year","Progression decision based on all of the above plus exam results."]
+],
+research:[
+ [1,"Research methods and good clinical practice course; join a departmental audit."],
+ [2,"Choose a research topic and supervisor; complete one audit cycle."],
+ [3,"Protocol written and ethics approval obtained."],
+ [4,"Data collection; present at a national or departmental meeting."],
+ [5,"Manuscript submitted or thesis completed before the final exam."]
+],
+courses:[
+ [1,"BLS and ACLS; basic surgical skills"],
+ [2,"Temporal bone dissection course; ATLS if available"],
+ [3,"FESS and endoscopic anatomy course"],
+ [4,"Head and neck dissection course; microsurgery skills"],
+ [5,"Final exam preparation course; leadership and teaching skills"]
+],
+exams:[
+ ["Board Part I","Usually during or after the 2nd year","Basic sciences and principles. Check current board regulations for timing and eligibility."],
+ ["Board Part II written","Final year","MCQ papers covering the full curriculum."],
+ ["Board Part II clinical","Final year, after the written","OSCE, clinical cases and viva."]
+]};
+
+const KEY="ent-program-v1";
+const DEF={name:"ENT Residency Program",start:null,cycle:"A",times:["12:00","12:45","13:45"],residents:[],skips:[],override:{}};
+let ST=(()=>{try{return Object.assign({},DEF,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){return Object.assign({},DEF)}})();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const dt=s=>new Date(s+"T00:00");
+const addD=(s,n)=>{const d=dt(s);d.setDate(d.getDate()+n);return iso(d)};
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],DAY=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const fd=s=>{const d=dt(s);return d.getDate()+" "+MON[d.getMonth()]};
+const fdy=s=>{const d=dt(s);return d.getDate()+" "+MON[d.getMonth()]+" "+d.getFullYear()};
+const today=()=>iso(new Date());
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),2200)}
+if(!ST.start){const d=new Date();d.setDate(d.getDate()+((2-d.getDay()+7)%7||7));ST.start=iso(d);save()}
+const LV=["","Observe","Assist","Perform under supervision","Independent"],LS=["","O","A","S","I"];
+const resById=id=>ST.residents.find(r=>r.id===id);
+const sortedRes=()=>[...ST.residents].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
+
+/* ---------- schedule ---------- */
+function slots(){
+  const blocks=CURRICULUM[ST.cycle],out=[];
+  blocks.forEach((b,bi)=>{
+    b.topics.forEach((t,ti)=>out.push({kind:"lec",bi,ti,block:b,topic:t,quiz:ti===4}));
+    if(bi===3)out.push({kind:"exam",title:"Mid-year assessment",desc:"OSCE stations and viva for all residents on blocks 1–4. Supervisor mid-year meetings this week."});
+    if(bi===5)out.push({kind:"exam",title:"Mock board exams",desc:"R2: Part I mock (basic sciences). R5: Part II mock (written paper and viva). Others: progress test, 60 MCQs."});
+    if(bi===7)out.push({kind:"exam",title:"End-of-year exam",desc:"100 MCQs plus OSCE for all residents. Followed by annual reviews and logbook sign-off."});
+  });
+  let d=ST.start;const skips=new Set(ST.skips);let wk=0;
+  for(const s of out){while(skips.has(d))d=addD(d,7);s.date=d;s.week=++wk;s.key=ST.cycle+"|"+(s.kind==="lec"?s.bi+"-"+s.ti:s.title);d=addD(d,7)}
+  assign(out);return out;
+}
+function rr(pool,i){return pool.length?pool[i%pool.length]:null}
+function assign(out){
+  const all=sortedRes();let ci=0,li=0,ji=0,mi=0;
+  for(const s of out){
+    s.items=[];
+    if(s.kind!=="lec"){s.items.push({tm:ST.times[0],what:s.title,who:s.desc,cls:"quiz"});continue}
+    const lecN=s.bi*5+s.ti;
+    let first;
+    if(lecN%4===0){const pool=all.filter(r=>r.level>=3);first={role:"jc",what:"Journal club",who:rr(pool.length?pool:all,ji++)}}
+    else if(lecN%4===2){const pool=all.filter(r=>r.level>=4);first={role:"mm",what:"Morbidity and mortality meeting",who:rr(pool.length?pool:all,mi++)}}
+    else first={role:"case",what:"Case presentation",who:rr(all,ci++)};
+    const [lo,hi]=s.block.lead;let pool=all.filter(r=>r.level>=lo&&r.level<=hi);if(!pool.length)pool=all;
+    const lec={role:"lec",what:s.topic,who:rr(pool,li++),ref:s.block.ref};
+    [first,lec].forEach(it=>{const ov=ST.override[s.key+"|"+it.role];if(ov&&resById(ov))it.who=resById(ov)});
+    s.items.push({tm:ST.times[0],what:first.what,who:first.who?first.who.name+" (R"+first.who.level+")":"Assign a resident",role:first.role,rid:first.who&&first.who.id});
+    s.items.push({tm:ST.times[1],what:lec.what,who:(lec.who?"Presenter: "+lec.who.name+" (R"+lec.who.level+"), consultant facilitator":"Consultant lecture")+"<br><span class='note'>Reading: "+esc(lec.ref)+"</span>",role:"lec",rid:lec.who&&lec.who.id,raw:true});
+    if(s.quiz)s.items.push({tm:ST.times[2],what:"Block quiz: "+s.block.name,who:"40 MCQs on this block, 45 minutes, reviewed together afterwards",cls:"quiz"});
+    else s.items.push({tm:ST.times[2],what:lecN%2?"Image and audiogram review":"Instrument and OSCE station practice",who:"Seniors lead, juniors answer"});
+  }
+}
+/* ---------- rotations ---------- */
+function rotFor(r){
+  const peers=sortedRes().filter(x=>x.level===r.level);const j=Math.max(0,peers.findIndex(x=>x.id===r.id));
+  const plan=ROTATIONS[r.level]||[];const sh=plan.length?j%plan.length:0;const order=plan.slice(sh).concat(plan.slice(0,sh));
+  const months=[];order.forEach(([n,m,c])=>{for(let k=0;k<m;k++)months.push({n,c})});return months.slice(0,12);
+}
+function monthIndex(dateS){const s=dt(ST.start),d=dt(dateS);return (d.getFullYear()-s.getFullYear())*12+d.getMonth()-s.getMonth()}
+function monthLabel(i){const s=dt(ST.start);const d=new Date(s.getFullYear(),s.getMonth()+i,1);return MON[d.getMonth()]+" "+String(d.getFullYear()).slice(2)}
+
+/* ---------- views ---------- */
+let TAB=location.hash.slice(1)||"week";
+function go(t){TAB=t;location.hash=t;render()}
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>go(b.dataset.t));
+window.addEventListener("hashchange",()=>{TAB=location.hash.slice(1)||"week";render()});
+function render(){
+  $("#pname").textContent=ST.name;
+  const S=slots();
+  $("#psub").textContent=`Academic year from ${fdy(ST.start)}, curriculum cycle ${ST.cycle}, ${ST.residents.length} resident${ST.residents.length===1?"":"s"}, academic day on ${DAY[dt(ST.start).getDay()]}s`;
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===TAB));
+  const V={week:vWeek,lectures:vLectures,quizzes:vQuizzes,ops:vOps,rot:vRot,frame:vFrame,res:vRes}[TAB]||vWeek;
+  $("#view").innerHTML=V(S);bind();window.scrollTo(0,0);
+}
+function sessionCard(s){
+  const d=dt(s.date);
+  return `<div class="session"><div class="date"><b class="num">${d.getDate()}</b><span>${MON[d.getMonth()]} ${d.getFullYear()}, ${DAY[d.getDay()]}</span><span>Week ${s.week}${s.kind==="lec"?", block "+(s.bi+1):""}</span></div><ol>${s.items.map(it=>`<li class="${it.cls||""}"><span class="tm num">${it.tm}</span><span class="what">${esc(it.what)}</span><span class="who">${it.raw?it.who:esc(it.who)}</span></li>`).join("")}</ol></div>`;
+}
+function vWeek(S){
+  const t=today();const next=S.find(s=>s.date>=t);
+  const nextQuiz=S.find(s=>s.date>=t&&(s.quiz||s.kind==="exam"));
+  const mi=monthIndex(t);
+  let h=`<h2>${next?(next.date===t?"Today's academic session":"Next academic session"):"The academic year has finished"}</h2>`;
+  if(next){h+=sessionCard(next)+`<div class="row noprint" style="margin-top:10px"><button class="btn p" data-share="${next.key}">Share with residents</button><button class="btn" data-skip="${next.date}">Postpone this session one week</button></div>`}
+  else h+=`<div class="empty">Set a new academic year start date in Residents & settings.</div>`;
+  h+=`<div class="grid2" style="margin-top:18px"><div class="panel"><h3 style="margin-top:0">Coming up</h3>`;
+  const up=S.filter(s=>s.date>(next?next.date:t)).slice(0,4);
+  h+=up.length?up.map(s=>`<div class="kv"><span>${fd(s.date)}</span><span>${esc(s.kind==="lec"?s.topic:s.title)}</span></div>`).join(""):'<p class="note">Nothing scheduled.</p>';
+  if(nextQuiz)h+=`<p class="note" style="margin-bottom:0">Next assessment: <b>${esc(nextQuiz.kind==="exam"?nextQuiz.title:"Block quiz, "+nextQuiz.block.name)}</b> on ${fdy(nextQuiz.date)}.</p>`;
+  h+=`</div><div class="panel"><h3 style="margin-top:0">Where residents are this month</h3>`;
+  h+=ST.residents.length?sortedRes().map(r=>{const m=(mi>=0&&mi<12)?rotFor(r)[mi]:null;return `<div class="kv"><span>${esc(r.name)} <span class="lvl" style="min-width:28px;height:20px;font-size:.72rem">R${r.level}</span></span><span>${m?esc(m.n):"Outside this academic year"}</span></div>`}).join(""):`<p class="note">Add residents in <a href="#res">Residents & settings</a> to see presenters and rotations.</p>`;
+  return h+`</div></div>`;
+}
+function vLectures(S){
+  const t=today();
+  let h=`<h2>Academic sessions, cycle ${ST.cycle}</h2><p class="lead">Eight blocks of five weeks. Each session has a resident-led first slot (case presentation, journal club or M&M), a core topic and a practice or quiz slot. Cycle A and cycle B alternate each year, so every resident covers the whole curriculum twice in five years.</p>
+  <div class="row noprint" style="margin-bottom:14px"><button class="btn" data-csv="lectures">Export to Excel</button><button class="btn" onclick="window.print()">Print</button></div>`;
+  const opts=(sel,role)=>`<option value="">Auto</option>`+sortedRes().map(r=>`<option value="${r.id}" ${sel===r.id?"selected":""}>${esc(r.name)} R${r.level}</option>`).join("");
+  let cur=-2;
+  S.forEach(s=>{
+    if(s.kind==="lec"&&s.bi!==cur){if(cur!==-2)h+=`</div></div>`;cur=s.bi;h+=`<div class="block"><div class="bh"><h3>Block ${s.bi+1}: ${esc(s.block.name)}</h3><small>${esc(s.block.ref)}</small></div><div class="panel">`}
+    if(s.kind==="exam"){h+=`</div></div><div class="block"><div class="panel"><div class="lec special ${s.date<t?"past":""}"><div class="d num">${fd(s.date)}<small>Week ${s.week}</small></div><div><div class="t">${esc(s.title)}</div><div class="s">${esc(s.desc)}</div><button class="btn sm skip noprint" data-skip="${s.date}">Postpone</button></div></div>`;cur=-1;return}
+    const first=s.items[0],lec=s.items[1];
+    h+=`<div class="lec ${s.date<t?"past":""}"><div class="d num">${fd(s.date)}<small>Week ${s.week}</small></div><div><div class="t">${esc(s.topic)}</div>
+    <div class="s">${esc(first.what)}: <select class="noprint" data-ov="${s.key}|${first.role}">${opts(ST.override[s.key+"|"+first.role],first.role)}</select><span class="pr"> ${esc(first.who)}</span></div>
+    <div class="s">Core topic presenter: <select class="noprint" data-ov="${s.key}|lec">${opts(ST.override[s.key+"|lec"])}</select><span class="pr"> ${lec.rid?esc(resById(lec.rid).name):"Consultant"}</span></div>
+    ${s.quiz?`<div class="s" style="color:var(--warn);font-weight:600">Block quiz in this session</div>`:""}
+    <button class="btn sm skip noprint" data-skip="${s.date}">Postpone</button></div></div>`;
+  });
+  h+=`</div></div>`;
+  if(ST.skips.length)h+=`<p class="note">Postponed weeks: ${ST.skips.slice().sort().map(fd).join(", ")}. Restore them in Residents & settings.</p>`;
+  return h;
+}
+function vQuizzes(S){
+  const t=today();
+  let h=`<h2>Quizzes and exams</h2><p class="lead">A 40-question MCQ quiz closes every block. Three larger assessments sit between blocks. Questions come from the block's topics and its reading list.</p>`;
+  h+=`<div class="panel">`+S.filter(s=>s.quiz||s.kind==="exam").map(s=>`<div class="quiz ${s.date<t?"past":""}" style="${s.date<t?"opacity:.55":""}"><div class="num" style="font-weight:600">${fd(s.date)}<div class="note">Week ${s.week}</div></div><div>${s.kind==="exam"?`<div class="t">${esc(s.title)}<span class="tag">Exam week</span></div><div class="s">${esc(s.desc)}</div>`:`<div class="t">Block ${s.bi+1} quiz: ${esc(s.block.name)}</div><div class="s">${s.block.topics.map(esc).join("; ")}</div><div class="s">40 MCQs, 45 minutes. Reading: ${esc(s.block.ref)}</div>`}</div></div>`).join("")+`</div>`;
+  h+=`<h3>How quizzes run</h3><div class="panel"><div class="kv"><span>Format</span><span>Single best answer MCQs, closed book</span></div><div class="kv"><span>Pass mark</span><span>60%; below that, a short remediation plan with the supervisor</span></div><div class="kv"><span>Review</span><span>Answers discussed in the same session</span></div><div class="kv"><span>Records</span><span>Scores feed into the annual review</span></div></div>`;
+  return h;
+}
+let OPSY=0;
+function vOps(){
+  let h=`<h2>Operative levels by year</h2><p class="lead">The level each resident is expected to reach by the end of each year, and an indicative minimum number performed (supervised or independent) by graduation. Adjust the numbers to the board's logbook requirements.</p>
+  <div class="legend">${[1,2,3,4].map(l=>`<span><i class="L${l}">${LS[l]}</i>${LV[l]}</span>`).join("")}</div>
+  <div class="chips noprint">${[0,1,2,3,4,5].map(y=>`<button data-opsy="${y}" aria-pressed="${OPSY===y}">${y?"R"+y:"All years"}</button>`).join("")}</div>
+  <div class="panel" style="overflow-x:auto"><table class="mx"><thead><tr><th>Procedure</th>${[1,2,3,4,5].map(y=>`<th>R${y}</th>`).join("")}<th style="text-align:right">Target</th></tr></thead><tbody>`;
+  PROCEDURES.forEach(([g,ps])=>{h+=`<tr class="grp"><td colspan="7">${esc(g)}</td></tr>`;ps.forEach(([n,lv,tg])=>{h+=`<tr><td class="p">${esc(n)}</td>${lv.map((l,i)=>`<td class="c"><i class="L${l} ${OPSY&&OPSY!==i+1?"dim":""}" title="R${i+1}: ${LV[l]}">${LS[l]}</i></td>`).join("")}<td class="tg num">${tg||"—"}</td></tr>`})});
+  h+=`</tbody></table></div>`;
+  if(OPSY){const perf=[],ind=[];PROCEDURES.forEach(([g,ps])=>ps.forEach(([n,lv])=>{if(lv[OPSY-1]===3)perf.push(n);if(lv[OPSY-1]===4)ind.push(n)}));
+    h+=`<div class="grid2" style="margin-top:14px"><div class="panel"><h3 style="margin-top:0">R${OPSY} performs under supervision</h3><p class="note">${perf.map(esc).join("; ")||"None"}</p></div><div class="panel"><h3 style="margin-top:0">R${OPSY} performs independently</h3><p class="note">${ind.map(esc).join("; ")||"None"}</p></div></div>`}
+  return h;
+}
+function vRot(){
+  let h=`<h2>Rotations</h2><p class="lead">Twelve-month plan for each year. Residents in the same year start their blocks in a different order, so services are never left without a resident and no one rotation is crowded.</p><h3>Plan by year</h3><div class="plan">`;
+  [1,2,3,4,5].forEach(y=>{h+=`<div class="yr"><b>R${y}</b><div class="bar" style="margin-top:4px">${ROTATIONS[y].map(([n,m,c])=>`<div class="c-${c}" style="flex:${m}">${esc(n)}<small>${m} month${m>1?"s":""}</small></div>`).join("")}</div></div>`});
+  h+=`</div><h3>Residents, month by month</h3>`;
+  if(!ST.residents.length)return h+`<div class="empty">Add residents in Residents & settings to see the month-by-month rota.</div>`;
+  const mi=monthIndex(today());
+  h+=`<div class="panel rgrid"><table class="rt"><thead><tr><th class="n">Resident</th>${Array.from({length:12},(_,i)=>`<th style="${i===mi?"color:var(--act)":""}">${monthLabel(i)}</th>`).join("")}</tr></thead><tbody>`;
+  sortedRes().forEach(r=>{const ms=rotFor(r);let cells="",k=0;while(k<ms.length){let j=k;while(j+1<ms.length&&ms[j+1].n===ms[k].n)j++;cells+=`<td colspan="${j-k+1}" class="c-${ms[k].c}">${esc(ms[k].n)}</td>`;k=j+1}
+    h+=`<tr><th class="n">${esc(r.name)} <span class="note">R${r.level}</span></th>${cells}</tr>`});
+  h+=`</tbody></table></div><div class="legend" style="margin-top:10px"><span><i class="c-ent"></i>ENT core</span><span><i class="c-sub"></i>ENT subspecialty</span><span><i class="c-ext"></i>Outside ENT</span><span><i class="c-res"></i>Elective or research</span><span><i class="c-chief"></i>Chief resident</span></div>
+  <div class="row noprint"><button class="btn" data-csv="rot">Export to Excel</button><button class="btn" onclick="window.print()">Print</button></div>`;
+  return h;
+}
+function vFrame(){
+  let h=`<h2>Training framework</h2><p class="lead">The weekly pattern, assessments, research, courses and exams that run alongside the academic sessions.</p>`;
+  h+=`<h3>Weekly pattern</h3><div class="panel">${FRAMEWORK.weekly.map(([a,b])=>`<div class="kv" style="display:block"><span style="display:block">${esc(a)}</span><span style="text-align:left;display:block">${esc(b)}</span></div>`).join("")}</div>`;
+  h+=`<h3>Workplace-based assessments</h3><div class="panel" style="overflow-x:auto"><table class="mx" style="border-spacing:0"><thead><tr><th>Assessment</th><th style="text-align:left">How often</th><th style="text-align:left">What</th></tr></thead><tbody>${FRAMEWORK.assess.map(([a,b,c])=>`<tr><td class="p" style="border-top:1px solid var(--line)">${esc(a)}</td><td style="border-top:1px solid var(--line);padding:6px 8px 6px 0">${esc(b)}</td><td style="border-top:1px solid var(--line);padding:6px 0;color:var(--muted)">${esc(c)}</td></tr>`).join("")}</tbody></table></div>`;
+  h+=`<div class="grid2" style="margin-top:6px"><div><h3>Research milestones</h3><div class="panel">${FRAMEWORK.research.map(([y,t])=>`<div class="kv" style="justify-content:flex-start"><span class="lvl">R${y}</span><span style="text-align:left">${esc(t)}</span></div>`).join("")}</div></div>
+  <div><h3>Courses</h3><div class="panel">${FRAMEWORK.courses.map(([y,t])=>`<div class="kv" style="justify-content:flex-start"><span class="lvl">R${y}</span><span style="text-align:left">${esc(t)}</span></div>`).join("")}</div></div></div>`;
+  h+=`<h3>Board exams</h3><div class="panel">${FRAMEWORK.exams.map(([a,b,c])=>`<div class="kv" style="display:block"><span style="display:block">${esc(a)} <span class="tag">${esc(b)}</span></span><span style="display:block;text-align:left">${esc(c)}</span></div>`).join("")}</div>`;
+  h+=`<h3>Logbook</h3><div class="panel note">Every case is logged the same day with the resident's role: observed, assisted, performed under supervision or independent. The supervising consultant signs the logbook monthly; numbers are reviewed every three months against the targets in Operative levels.</div>`;
+  return h;
+}
+function vRes(S){
+  const t=today(),mi=monthIndex(t);
+  let h=`<h2>Residents</h2><div class="panel noprint"><div class="row" style="align-items:flex-end"><label class="f" style="flex:2;min-width:180px;margin:0"><span>Name</span><input id="rn" placeholder="Dr. …"></label><label class="f" style="flex:1;min-width:90px;margin:0"><span>Year</span><select id="rl">${[1,2,3,4,5].map(y=>`<option value="${y}">R${y}</option>`).join("")}</select></label><button class="btn p" id="radd">Add resident</button></div></div>`;
+  if(!ST.residents.length)h+=`<div class="empty" style="margin-top:12px">No residents yet. Add each resident with their year; presenters and rotations fill in automatically.</div>`;
+  else{h+=`<div class="panel" style="margin-top:12px">`+sortedRes().map(r=>{
+      const mine=S.filter(s=>s.date>=t&&s.items&&s.items.some(it=>it.rid===r.id)).slice(0,3);const m=(mi>=0&&mi<12)?rotFor(r)[mi]:null;
+      const perf=[];PROCEDURES.forEach(([g,ps])=>ps.forEach(([n,lv])=>{if(lv[r.level-1]>=3&&(r.level===1||lv[r.level-2]<lv[r.level-1]))perf.push(n)}));
+      return `<div class="res-card"><div class="row"><span class="lvl">R${r.level}</span><b style="flex:1">${esc(r.name)}</b><select class="noprint" data-lvl="${r.id}" aria-label="Change year">${[1,2,3,4,5].map(y=>`<option value="${y}" ${y===r.level?"selected":""}>R${y}</option>`).join("")}</select><button class="btn sm d noprint" data-del="${r.id}">Remove</button></div>
+      <div class="note" style="margin-top:6px"><b>This month:</b> ${m?esc(m.n):"outside this academic year"}</div>
+      <div class="note"><b>Presenting next:</b> ${mine.length?mine.map(s=>fd(s.date)+" ("+esc(s.items.find(it=>it.rid===r.id).what)+")").join("; "):"nothing scheduled"}</div>
+      <div class="note"><b>New this year in theatre:</b> ${perf.map(esc).join("; ")||"consolidation of previous levels"}</div></div>`}).join("")+`</div>`;}
+  h+=`<p class="note">Promote everyone one year at the start of each academic year with the button below.</p><div class="row noprint"><button class="btn" id="promote">Promote all residents one year</button></div>`;
+  h+=`<h2>Settings</h2><div class="panel noprint"><label class="f"><span>Program name</span><input id="sname" value="${esc(ST.name)}"></label>
+  <div class="row"><label class="f" style="flex:1;min-width:160px"><span>First academic session (sets the weekday)</span><input type="date" id="sstart" value="${ST.start}"></label><label class="f" style="flex:1;min-width:140px"><span>Curriculum cycle this year</span><select id="scycle"><option value="A" ${ST.cycle==="A"?"selected":""}>Cycle A (foundations)</option><option value="B" ${ST.cycle==="B"?"selected":""}>Cycle B (advanced)</option></select></label></div>
+  <div class="row"><label class="f" style="flex:1"><span>First slot</span><input type="time" id="t0" value="${ST.times[0]}"></label><label class="f" style="flex:1"><span>Core topic</span><input type="time" id="t1" value="${ST.times[1]}"></label><label class="f" style="flex:1"><span>Practice or quiz</span><input type="time" id="t2" value="${ST.times[2]}"></label></div>
+  <button class="btn p" id="ssave">Save settings</button>
+  ${ST.skips.length?`<h3>Postponed weeks</h3>${ST.skips.slice().sort().map(d=>`<div class="kv"><span>${fdy(d)}</span><span><button class="btn sm" data-unskip="${d}">Restore</button></span></div>`).join("")}`:""}
+  <h3>Backup</h3><div class="row"><button class="btn" id="bexp">Export program data</button><label class="btn">Import data<input type="file" id="bimp" accept=".json" hidden></label></div>
+  <p class="note">Everything is stored on this device. Export a copy before changing phones.</p></div>`;
+  return h;
+}
+/* ---------- events ---------- */
+function bind(){
+  const v=$("#view");
+  v.querySelectorAll("[data-skip]").forEach(b=>b.onclick=()=>{if(!ST.skips.includes(b.dataset.skip))ST.skips.push(b.dataset.skip);save();toast("Postponed: everything after it moves one week");render()});
+  v.querySelectorAll("[data-unskip]").forEach(b=>b.onclick=()=>{ST.skips=ST.skips.filter(d=>d!==b.dataset.unskip);save();render()});
+  v.querySelectorAll("[data-ov]").forEach(s=>s.onchange=()=>{if(s.value)ST.override[s.dataset.ov]=s.value;else delete ST.override[s.dataset.ov];save();render()});
+  v.querySelectorAll("[data-opsy]").forEach(b=>b.onclick=()=>{OPSY=+b.dataset.opsy;render()});
+  v.querySelectorAll("[data-share]").forEach(b=>b.onclick=()=>shareSession(b.dataset.share));
+  v.querySelectorAll("[data-csv]").forEach(b=>b.onclick=()=>exportCSV(b.dataset.csv));
+  v.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{const r=resById(b.dataset.del);if(confirm("Remove "+r.name+"?")){ST.residents=ST.residents.filter(x=>x.id!==r.id);save();render()}});
+  v.querySelectorAll("[data-lvl]").forEach(s=>s.onchange=()=>{resById(s.dataset.lvl).level=+s.value;save();render()});
+  const add=$("#radd");if(add)add.onclick=()=>{const n=$("#rn").value.trim();if(!n){$("#rn").focus();return}ST.residents.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:n,level:+$("#rl").value});save();toast("Added "+n);render()};
+  const rn=$("#rn");if(rn)rn.onkeydown=e=>{if(e.key==="Enter")add.click()};
+  const pr=$("#promote");if(pr)pr.onclick=()=>{const grads=ST.residents.filter(r=>r.level===5);if(!confirm("Move every resident up one year?"+(grads.length?"\n\nR5 residents ("+grads.map(r=>r.name).join(", ")+") will be removed as graduates.":"")))return;ST.residents=ST.residents.filter(r=>r.level<5).map(r=>Object.assign(r,{level:r.level+1}));ST.override={};save();toast("Promoted");render()};
+  const ss=$("#ssave");if(ss)ss.onclick=()=>{ST.name=$("#sname").value.trim()||DEF.name;if($("#sstart").value&&$("#sstart").value!==ST.start){ST.start=$("#sstart").value;ST.skips=[];ST.override={}}ST.cycle=$("#scycle").value;ST.times=[$("#t0").value||"12:00",$("#t1").value||"12:45",$("#t2").value||"13:45"];save();toast("Settings saved");render()};
+  const be=$("#bexp");if(be)be.onclick=()=>download(new Blob([JSON.stringify(ST,null,1)],{type:"application/json"}),"ent-program-"+today()+".json");
+  const bi=$("#bimp");if(bi)bi.onchange=async()=>{try{const d=JSON.parse(await bi.files[0].text());if(!Array.isArray(d.residents))throw 0;ST=Object.assign({},DEF,d);save();toast("Data imported");render()}catch(e){toast("That file is not a program export")}};
+}
+function download(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove()}
+async function shareSession(key){
+  const s=slots().find(x=>x.key===key);if(!s)return;const d=dt(s.date);
+  const txt=`${ST.name}\nAcademic session: ${DAY[d.getDay()]} ${fdy(s.date)}\n\n`+s.items.map(it=>`${it.tm}  ${it.what}\n       ${String(it.who).replace(/<br>/g,"\n       ").replace(/<[^>]+>/g,"")}`).join("\n\n");
+  try{if(navigator.share){await navigator.share({text:txt});return}}catch(e){if(e.name==="AbortError")return}
+  try{await navigator.clipboard.writeText(txt);toast("Copied — paste it in the residents' group")}catch(e){prompt("Copy:",txt)}
+}
+function csv(rows){return "\ufeff"+rows.map(r=>r.map(c=>{c=String(c??"").replace(/<[^>]+>/g," ");return /[",\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c}).join(",")).join("\r\n")}
+function exportCSV(kind){
+  if(kind==="lectures"){const rows=[["Week","Date","Block","Session","First slot","First slot presenter","Core topic","Core presenter","Third slot","Reading"]];
+    slots().forEach(s=>{if(s.kind==="exam")rows.push([s.week,s.date,"",s.title,"","","","",s.desc,""]);else rows.push([s.week,s.date,s.bi+1,s.block.name,s.items[0].what,s.items[0].who,s.topic,s.items[1].rid?resById(s.items[1].rid).name:"Consultant",s.items[2].what,s.block.ref])});
+    download(new Blob([csv(rows)],{type:"text/csv"}),"academic-sessions-"+ST.cycle+".csv")}
+  else{const rows=[["Resident","Year",...Array.from({length:12},(_,i)=>monthLabel(i))]];sortedRes().forEach(r=>rows.push([r.name,"R"+r.level,...rotFor(r).map(m=>m.n)]));download(new Blob([csv(rows)],{type:"text/csv"}),"rotations.csv")}
+}
+render();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
